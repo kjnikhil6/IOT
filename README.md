@@ -1,12 +1,13 @@
-## Welcome to GitHub Pages
+## Me
+I'm NIKHIL KJ....
 
-You can use the [editor on GitHub](https://github.com/kjnikhil6/IoT/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Experiment 1
+```c
+void setup{
+}
+void loop{
+}
+```
 
 ```markdown
 Syntax highlighted code block
