@@ -1,7 +1,9 @@
 ## Me
 I'm NIKHIL KJ....
-
+\
+\
 ### Expt 1:LED Blinking
+\
 ```c
 int ledPin = 4;
 void setup() {
@@ -15,6 +17,7 @@ void loop() {
   delay(1000);
 }
 ```
+\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -22,9 +25,10 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-
+\
+\
 ### Expt 2:Traffic Light
-
+\
 ```c
 int rLED = 13;
 int yLED = 8;
@@ -54,6 +58,7 @@ void loop() {
   
 }
 ```
+\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -61,10 +66,10 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-
-
+\
+\
 ### Expt 3:LED Chasing Effect
-
+\
 ```c
 int BASE =2;
 int NUM =5;
@@ -91,6 +96,7 @@ void loop() {
 
 }
 ```
+\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -98,8 +104,10 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-
+\
+\
 ### Expt 4:RGB LED
+\
 ```c
 String color;
 int RedL=3;
@@ -141,6 +149,8 @@ void loop() {
   RGB(170,200,50);
 }
 ```
+
+\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -148,8 +158,36 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
+\
+\
+###Expt 5:Buzzer
+\
+```c
+int buzzPin = 12;
+void setup() {
+  pinMode(buzzPin,OUTPUT);
+}
 
-### Expt :POTRNTIOMETER
+void loop() {
+  digitalWrite(buzzPin,HIGH);
+  delayMicroseconds(1000);
+  digitalWrite(buzzPin,LOW);
+  delayMicroseconds(1000);
+}
+```
+
+\
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+\
+\
+### Expt :POTENTIOMETER
+\
 ```c
 int potVal;
 int potPin=A0;
@@ -175,6 +213,7 @@ void loop() {
   analogWrite(ledPin,ledVal);  
 }
 ```
+\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -182,7 +221,8 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-
+\
+\
 
 ```markdown
 Syntax highlighted code block
