@@ -205,7 +205,7 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt :POTENTIOMETER
+### Expt #:POTENTIOMETER
 <br/>
 
 ```c
@@ -246,7 +246,7 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt :LDR
+### Expt #:LDR
 <br/>
 
 
