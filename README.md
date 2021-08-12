@@ -23,7 +23,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+src="https://youtu.be/JToYQKcGWNk" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
@@ -69,7 +69,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+src="https://youtu.be/Wa89EvzFB1U" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
