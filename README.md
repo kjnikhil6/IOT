@@ -31,9 +31,11 @@ allowfullscreen></iframe>
 
 <br/>
 <br/>
+
 ### Expt 2:Traffic Light
 <br/>
-\
+<br/>
+
 ```c
 int rLED = 13;
 int yLED = 8;
@@ -63,7 +65,8 @@ void loop() {
   
 }
 ```
-\
+<br/>
+
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -71,10 +74,12 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-\
-\
+<br/>
+<br/>
+
 ### Expt 3:LED Chasing Effect
-\
+<br/>
+
 ```c
 int BASE =2;
 int NUM =5;
@@ -101,7 +106,8 @@ void loop() {
 
 }
 ```
-\
+<br/>
+
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -109,10 +115,12 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-\
-\
+<br/>
+<br/>
+
 ### Expt 4:RGB LED
-\
+<br/>
+
 ```c
 String color;
 int RedL=3;
@@ -154,8 +162,8 @@ void loop() {
   RGB(170,200,50);
 }
 ```
+<br/>
 
-\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -163,10 +171,13 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-\
-\
-###Expt 5:Buzzer
-\
+<br/>
+<br/>
+
+### Expt 5:Buzzer
+
+<br/>
+
 ```c
 int buzzPin = 12;
 void setup() {
@@ -180,8 +191,8 @@ void loop() {
   delayMicroseconds(1000);
 }
 ```
+<br/>
 
-\
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -189,10 +200,13 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-\
-\
+
+<br/>
+<br/>
+
 ### Expt :POTENTIOMETER
-\
+<br/>
+
 ```c
 int potVal;
 int potPin=A0;
@@ -218,7 +232,8 @@ void loop() {
   analogWrite(ledPin,ledVal);  
 }
 ```
-\
+<br/>
+
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
@@ -226,8 +241,9 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
-\
-\
+
+<br/>
+<br/>
 
 ```markdown
 Syntax highlighted code block
