@@ -1,9 +1,8 @@
 ## Hi
-I'm NIKHIL KJ
+I'm NIKHIL KJ  
   
+### Expt 1:LED Blinking  
   
-### Expt 1:LED Blinking
-\
 ```c
 int ledPin = 4;
 void setup() {
@@ -16,17 +15,15 @@ void loop() {
   digitalWrite(ledPin,LOW);
   delay(1000);
 }
-```
-\
+```  
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
-<!-- blank line -->
-\
-\
+<!-- blank line -->  
+  
 ### Expt 2:Traffic Light
 \
 ```c
