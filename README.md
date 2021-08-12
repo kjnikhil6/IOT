@@ -15,18 +15,13 @@ void loop() {
   delay(1000);
 }
 ```
-
-
-<!-- blank line -->
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
+<!-- blank line -->
 
 ### Expt 2:Traffic Light
 
@@ -59,6 +54,135 @@ void loop() {
   
 }
 ```
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+
+### Expt 3:LED Chasing Effect
+
+```c
+int BASE =2;
+int NUM =5;
+int dTime=200;
+
+void CHASING(int POWER){
+  for(int i =BASE;i<BASE+NUM;i++){
+    digitalWrite(i,POWER);
+    delay(dTime);
+  }
+}
+void setup() {
+  // put your setup code here, to run once:
+  for(int i =BASE;i<BASE+NUM;i++){
+    pinMode(i,OUTPUT);
+  }
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+  CHASING(HIGH);
+  CHASING(LOW);
+
+}
+```
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+### Expt 4:RGB LED
+```c
+String color;
+int RedL=3;
+int GreenL=6;
+int  BlueL=9;
+String msg ="Enter the color:";
+
+void RGB(int R, int G , int B){
+   analogWrite(RedL,R);
+   analogWrite(GreenL,G);
+   analogWrite(BlueL,B);
+   delay(1200);
+}
+void setup() {
+pinMode(RedL,OUTPUT);
+pinMode(GreenL,OUTPUT);
+pinMode(BlueL,OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+  //RED
+  RGB(255,0,0);
+  //GREEN
+  RGB(0,255,0);
+  //BLUE
+  RGB(0,0,255);
+  //CYAN
+  RGB(0,255,255);
+  //YELLOW
+  RGB(255,255,0);
+  //magenta
+  RGB(255,0,255);
+  //WHITE
+  RGB(255,255,255);
+  //
+  RGB(125,255,10);
+  //
+  RGB(170,200,50);
+}
+```
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+### Expt :POTRNTIOMETER
+```c
+int potVal;
+int potPin=A0;
+int ledPin=11;
+float ledV;
+float ledVal;
+
+float potV2ledV(int potV){
+  ledV=(255./1023.)*potV;
+  return ledV;
+}
+void setup() {
+  Serial.begin(9600);
+  pinMode(potPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+}
+void loop() {
+  potVal=analogRead(potPin);
+  Serial.println(potVal);
+  ledVal = potV2ledV(potVal);
+  Serial.println(ledVal);
+  Serial.println("--------------");
+  analogWrite(ledPin,ledVal);  
+}
+```
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
 
 ```markdown
 Syntax highlighted code block
@@ -77,15 +201,5 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kjnikhil6/IoT/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
 
 
