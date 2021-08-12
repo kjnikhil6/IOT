@@ -245,6 +245,59 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
+### Expt :LDR
+<br/>
+
+
+```c
+int LDrPin=8;
+int ledPin=12;
+int buzzPin= 7;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LDrPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+  pinMode(buzzPin,OUTPUT);
+}
+
+void loop() {
+
+  int LDrVal;
+  digitalWrite(ledPin,LOW);
+  int dt=155;
+  LDrVal=digitalRead(LDrPin);
+  Serial.println(LDrVal);
+
+  while(LDrVal){
+    digitalWrite(ledPin,HIGH);
+    
+    digitalWrite(buzzPin,HIGH);
+    delay(dt);
+    digitalWrite(buzzPin,LOW);
+    delay(dt);
+    LDrVal=digitalRead(LDrPin);
+  }
+  
+  
+}
+```
+
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+
+
 ```markdown
 Syntax highlighted code block
 
