@@ -3,18 +3,62 @@ I'm NIKHIL KJ....
 
 ### Expt 1:LED Blinking
 ```c
-void setup{
+int ledPin = 4;
+void setup() {
+  pinMode(ledPin,OUTPUT);
 }
-void loop{
+
+void loop() {
+  digitalWrite(ledPin,HIGH);
+  delay(1000);
+  digitalWrite(ledPin,LOW);
+  delay(1000);
 }
 ```
-[Link](https://youtu.be/CzSMC5rWvos)
+
 
 <!-- blank line -->
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
 <!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+
+### Expt 2:Traffic Light
+
+```c
+int rLED = 13;
+int yLED = 8;
+int gLED = 2;
+int i;
+void setup() {
+  pinMode(rLED,OUTPUT);
+  pinMode(yLED,OUTPUT);
+  pinMode(gLED,OUTPUT);
+}
+
+void loop() {
+  digitalWrite(gLED,HIGH);
+  delay(5000);
+  digitalWrite(gLED,LOW);
+  
+  for(i=0;i<3;i++){
+    delay(500);
+    digitalWrite(yLED,HIGH);
+    delay(500);
+    digitalWrite(yLED,LOW);
+  }
+  delay(500);
+  digitalWrite(rLED,HIGH);
+  delay(5000);
+  digitalWrite(rLED,LOW);
+  
+}
+```
 
 ```markdown
 Syntax highlighted code block
