@@ -245,7 +245,7 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt 7: Flame Sensor
+### Expt 8: Flame Sensor
 
 <br/>
 
@@ -281,31 +281,28 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
 <!-- blank line -->
 
-### Expt 8:Temperature Sensor LM35
+### Expt 9:Temperature Sensor LM35
 
 <br/>
 
 ```c
-int temp = A0;
-int Buzzer =8;
+int Flame = A0;
 
 void setup() {
-  pinMode(temp,INPUT);
-  pinMode(Buzzer,OUTPUT);
+  pinMode(Flame,INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
   
-  int val = analogRead(temp);
-  int dat;// define variable
-  val=analogRead(0);
-  // read the analog value of the sensor and assign it to val
-  dat=(125*val)>>8;// temperature calculation formula
-  Serial.print("Temp ");// output and display characters beginning with Tep
-  Serial.print(dat);// output and display value of dat
-  Serial.println(" C");// display “C” characters
-  delay(500);// wait for 0.5 second;
+  int flameVAL = analogRead(Flame);
+  Serial.println(flameVAL);
+  if(flameVAL> 600)
+    digitalWrite(Buzzer,HIGH);
+  else
+    digitalWrite(Buzzer,0);
+  delay(500);
+
 }
 ```
 <br/>
@@ -406,6 +403,65 @@ void loop() {
 <!-- blank line -->
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/QuOpklLrG78" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+### Expt #:Toggle Switch
+<br/>
+
+```c
+int buzzPin = 12;
+void setup() {
+  pinMode(buzzPin,OUTPUT);
+}
+
+void loop() {
+  digitalWrite(buzzPin,HIGH);
+  delayMicroseconds(1000);
+  digitalWrite(buzzPin,LOW);
+  delayMicroseconds(1000);
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+### Expt #: Button Controlled dimmable LED
+
+<br/>
+
+```c
+int buzzPin = 12;
+void setup() {
+  pinMode(buzzPin,OUTPUT);
+}
+
+void loop() {
+  digitalWrite(buzzPin,HIGH);
+  delayMicroseconds(1000);
+  digitalWrite(buzzPin,LOW);
+  delayMicroseconds(1000);
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
