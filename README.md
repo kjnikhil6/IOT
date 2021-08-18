@@ -286,23 +286,24 @@ allowfullscreen></iframe>
 <br/>
 
 ```c
-int Flame = A0;
+int temp = A0;
 
 void setup() {
-  pinMode(Flame,INPUT);
+  pinMode(temp,INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
   
-  int flameVAL = analogRead(Flame);
-  Serial.println(flameVAL);
-  if(flameVAL> 600)
-    digitalWrite(Buzzer,HIGH);
-  else
-    digitalWrite(Buzzer,0);
-  delay(500);
-
+  int val = analogRead(temp);
+  int dat;// define variable
+  val=analogRead(0);
+  // read the analog value of the sensor and assign it to val
+  dat=(125*val)>>8;// temperature calculation formula
+  Serial.print("Temp ");// output and display characters beginning with Tep
+  Serial.print(dat);// output and display value of dat
+  Serial.println(" C");// display “C” characters
+  delay(500);// wait for 0.5 second;
 }
 ```
 <br/>
@@ -415,16 +416,29 @@ allowfullscreen></iframe>
 <br/>
 
 ```c
-int buzzPin = 12;
+
+int readPIN = 8;
+int ledPIN  = 12;
+
 void setup() {
-  pinMode(buzzPin,OUTPUT);
+  //pinMode(readPIN,INPUT_PULLUP);//press =0
+  pinMode(readPIN,INPUT);
+  pinMode(ledPIN,OUTPUT);
+  Serial.begin(9600);
 }
 
+
+bool prevVal = HIGH; 
+bool prev_readVal;
 void loop() {
-  digitalWrite(buzzPin,HIGH);
-  delayMicroseconds(1000);
-  digitalWrite(buzzPin,LOW);
-  delayMicroseconds(1000);
+  bool readVal;
+  readVal = digitalRead(readPIN);
+  delay(50);
+  if(readVal & !prev_readVal){ // 0 to 1 transition
+     digitalWrite(ledPIN, prevVal);
+     prevVal = !prevVal;
+    }
+  prev_readVal=readVal;   
 }
 ```
 <br/>
@@ -445,16 +459,48 @@ allowfullscreen></iframe>
 <br/>
 
 ```c
-int buzzPin = 12;
+int readPIN_up = 11;
+int readPIN_down = 12;
+int ledPIN  = 9;
+
+int BrightVal=0;
+
 void setup() {
-  pinMode(buzzPin,OUTPUT);
+  pinMode(readPIN_up,INPUT_PULLUP);
+  pinMode(readPIN_down,INPUT_PULLUP);
+  pinMode(ledPIN,OUTPUT);
+  Serial.begin(9600);
 }
 
+
 void loop() {
-  digitalWrite(buzzPin,HIGH);
-  delayMicroseconds(1000);
-  digitalWrite(buzzPin,LOW);
-  delayMicroseconds(1000);
+
+  int dt =50;
+  
+  int readVal_up;
+  readVal_up=digitalRead(readPIN_up);
+  delay(dt);
+  
+  int readVal_down;
+  readVal_down=digitalRead(readPIN_down);
+  delay(dt);
+  
+  if(!readVal_up){
+    if(BrightVal != 255){
+      BrightVal += 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
+  if(!readVal_down){
+    if(BrightVal != 0){
+      BrightVal-= 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
 }
 ```
 <br/>
