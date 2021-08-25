@@ -516,3 +516,316 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
+### Expt #: Button Controlled dimmable LED
+
+<br/>
+
+'''c
+#include <IRremote.h>
+int RECV_PIN = 3;
+int LED1 = 8;
+int LED2 = 9;
+int LED3 = 10;
+int LED4 = 11;
+
+const unsigned long LED1_IR = 0x00C0006D;
+const unsigned long LED2_IR = 0xC0006E;
+const unsigned long LED3_IR = 0xC0006F;
+const unsigned long LED4_IR = 0xC00070;
+const unsigned long TOGGLE_IR = 0xC0000C;
+
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+void dump(decode_results results) {
+  switch (results.decode_type) {
+    case NEC:
+      Serial.println("NEC");
+      break;
+    case SONY:
+      Serial.println("SONY");
+      break;
+    case RC5:
+      Serial.println("RC5");
+      break;
+    case RC6:
+      Serial.print("RC6:");
+      break;
+    case DISH:
+      Serial.print("DISH:");
+      break;
+    case SHARP:
+      Serial.print("SHARP:");
+      break;
+    case JVC:
+      Serial.print("JVC:");
+      break;
+    case SANYO:
+      Serial.print("SANYO:");
+      break;
+    case MITSUBISHI:
+      Serial.print("MITSUBISHI:");
+      break;
+    case SAMSUNG:
+      Serial.print("SAMSUNG:");
+      break;
+    case LG:
+      Serial.print("LG:");
+      break;
+    case WHYNTER:
+      Serial.print("WHYNTER:");
+      break;
+    case AIWA_RC_T501:
+      Serial.print("AIWA_RC_T501:");
+      break;
+    case PANASONIC:
+      Serial.print("PANASONIC:");
+      break;
+    case DENON:
+      Serial.print("DENON:");
+      break;
+    default:
+    case UNKNOWN:
+      Serial.print("UNKNOWN:");
+      break;
+  }
+  Serial.print(results.value, HEX);
+  Serial.print(" (");
+  Serial.print(results.bits, DEC);
+  Serial.println(" bits)");
+}
+
+void lights(int a,int b,int c,int d){
+  digitalWrite(LED1,a);
+  digitalWrite(LED2,b);
+  digitalWrite(LED3,c);
+  digitalWrite(LED4,d);
+}
+
+void setup()
+{
+  pinMode(RECV_PIN, INPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+  irrecv.enableIRIn(); // Start the receiver
+}
+int on = 0;
+unsigned long last = millis();
+void loop()
+{
+  if (irrecv.decode(&results))
+  {
+    // If it's been at least 1/4 second since the last
+    // IR received, toggle the relay
+    if (millis() - last > 250)
+    {
+      on = !on;
+      digitalWrite(13, on ? HIGH : LOW);
+      dump(results);
+    }
+    
+
+    switch (results.value){
+      case LED1_IR :
+            Serial.print(results.value);
+            lights(1,0,0,0);
+            break;
+      case LED2_IR :
+            lights(0,1,0,0);
+            break;
+      case LED3_IR :
+            lights(0,0,1,0);
+            break;
+      case LED4_IR :
+            lights(0,0,0,1);
+            break;
+      case TOGGLE_IR :
+            lights(on,on,on,on);
+            break;
+            
+    }
+
+
+
+    last = millis();
+    irrecv.resume(); // Receive the next value
+  }
+}
+'''
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+### Expt #: Button Controlled dimmable LED
+
+<br/>
+
+'''c
+// C++ code
+//
+int g = 12;
+int f = 11;
+int e = 10;
+int d = 9;
+int c = 8;
+int b = 7;
+int a = 6;
+int dp = 5;
+
+
+void digital_0(void) // display number 5
+{
+unsigned char j;
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e,HIGH);
+digitalWrite(f,HIGH);
+digitalWrite(g,LOW);
+digitalWrite(dp,LOW);
+}
+void digital_1(void)
+{// display number 1
+digitalWrite(a,LOW);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,LOW);
+digitalWrite(e,LOW);
+digitalWrite(f,LOW);
+digitalWrite(g,LOW);
+digitalWrite(dp,LOW);
+}
+void digital_2(void) // display number 2
+{
+unsigned char j;
+digitalWrite(b,HIGH);
+digitalWrite(a,HIGH);
+for(j=9;j<=12;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(c,LOW);
+digitalWrite(f,LOW);
+}
+void digital_3(void) // display number 3
+{
+ digitalWrite(g,HIGH);
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(f,LOW);
+digitalWrite(e,LOW);
+}
+void digital_4(void) // display number 4
+{
+ digitalWrite(c,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(a,LOW);
+digitalWrite(e,LOW);
+digitalWrite(d,LOW);
+}
+void digital_5(void) // display number 5
+{
+digitalWrite(a,HIGH);
+digitalWrite(b, LOW);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e, LOW);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+}
+void digital_6(void) // display number 6
+{
+unsigned char j;
+for(j=7;j<=11;j++)
+digitalWrite(j,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(b,LOW);
+}
+void digital_7(void) // display number 7
+{
+unsigned char j;
+for(j=6;j<=8;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+for(j=9;j<=12;j++)
+digitalWrite(j,LOW);
+}
+void digital_8(void) // display number 8
+{
+unsigned char j;
+for(j=6;j<=12;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+}
+void digital_9(void) // display number 5
+{
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e, LOW);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+}
+void setup()
+{
+  int i;// set variable
+  for(i=5;i<=12;i++)
+  pinMode(i,OUTPUT);// set pin 5-12 as “output”
+}
+
+void loop()
+{
+while(1)
+{
+digital_0();
+delay(1000);
+digital_1();
+delay(1000);
+digital_2();
+delay(1000);
+digital_3();
+delay(1000); 
+digital_4();
+delay(1000); 
+digital_5();
+delay(1000); 
+digital_6();
+delay(1000); 
+digital_7();
+delay(1000);
+digital_8();
+delay(1000); 
+digital_9();
+delay(1000); 
+}}
+
+'''
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
