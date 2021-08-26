@@ -149,7 +149,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
+src="https://www.youtube.com/embed/T9m9NT8zQqs" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
@@ -298,12 +298,11 @@ void loop() {
   int val = analogRead(temp);
   int dat;// define variable
   val=analogRead(0);
-  // read the analog value of the sensor and assign it to val
   dat=(125*val)>>8;// temperature calculation formula
-  Serial.print("Temp ");// output and display characters beginning with Tep
-  Serial.print(dat);// output and display value of dat
-  Serial.println(" C");// display “C” characters
-  delay(500);// wait for 0.5 second;
+  Serial.print("Temp ");
+  Serial.print(dat);
+  Serial.println(" C");
+  delay(500);
 }
 ```
 <br/>
@@ -320,7 +319,7 @@ allowfullscreen></iframe>
 <br/>
 
 
-### Expt #:POTENTIOMETER
+### Expt 11:POTENTIOMETER
 <br/>
 
 ```c
@@ -454,7 +453,7 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt #: Button Controlled dimmable LED
+### Expt 5: Button Controlled dimmable LED
 
 <br/>
 
@@ -516,11 +515,11 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt #: Button Controlled dimmable LED
+### Expt 10: IR Remote
 
 <br/>
 
-'''c
+```c
 #include <IRremote.h>
 int RECV_PIN = 3;
 int LED1 = 8;
@@ -655,22 +654,22 @@ void loop()
     irrecv.resume(); // Receive the next value
   }
 }
-'''
+```
 <br/>
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
+src="https://www.youtube.com/embed/S8j5t4o1oxc" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
 
-### Expt #: Button Controlled dimmable LED
+### Expt 12: 7 Segment Display
 
 <br/>
 
-'''c
+```c
 // C++ code
 //
 int g = 12;
@@ -819,12 +818,12 @@ digital_9();
 delay(1000); 
 }}
 
-'''
+```
 <br/>
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
+src="https://www.youtube.com/embed/OtOnRjMkYkE" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
