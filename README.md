@@ -244,7 +244,56 @@ allowfullscreen></iframe>
 <!-- blank line -->
 <br/>
 <br/>
+### Expt 7:LDR
+<br/>
 
+
+```c
+int LDrPin=8;
+int ledPin=12;
+int buzzPin= 7;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LDrPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+  pinMode(buzzPin,OUTPUT);
+}
+
+void loop() {
+
+  int LDrVal;
+  digitalWrite(ledPin,LOW);
+  int dt=155;
+  LDrVal=digitalRead(LDrPin);
+  Serial.println(LDrVal);
+
+  while(LDrVal){
+    digitalWrite(ledPin,HIGH);
+    
+    digitalWrite(buzzPin,HIGH);
+    delay(dt);
+    digitalWrite(buzzPin,LOW);
+    delay(dt);
+    LDrVal=digitalRead(LDrPin);
+  }
+  
+  
+}
+```
+
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/QuOpklLrG78" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
 ### Expt 8: Flame Sensor
 
 <br/>
@@ -280,6 +329,8 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
+<br/>
+<br/>
 
 ### Expt 9:Temperature Sensor LM35
 
@@ -360,98 +411,8 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
-### Expt #:LDR
-<br/>
 
 
-```c
-int LDrPin=8;
-int ledPin=12;
-int buzzPin= 7;
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(LDrPin,INPUT);
-  pinMode(ledPin,OUTPUT);
-  pinMode(buzzPin,OUTPUT);
-}
-
-void loop() {
-
-  int LDrVal;
-  digitalWrite(ledPin,LOW);
-  int dt=155;
-  LDrVal=digitalRead(LDrPin);
-  Serial.println(LDrVal);
-
-  while(LDrVal){
-    digitalWrite(ledPin,HIGH);
-    
-    digitalWrite(buzzPin,HIGH);
-    delay(dt);
-    digitalWrite(buzzPin,LOW);
-    delay(dt);
-    LDrVal=digitalRead(LDrPin);
-  }
-  
-  
-}
-```
-
-<br/>
-
-<!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/QuOpklLrG78" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-<!-- blank line -->
-
-<br/>
-<br/>
-
-### Expt #:Toggle Switch
-<br/>
-
-```c
-
-int readPIN = 8;
-int ledPIN  = 12;
-
-void setup() {
-  //pinMode(readPIN,INPUT_PULLUP);//press =0
-  pinMode(readPIN,INPUT);
-  pinMode(ledPIN,OUTPUT);
-  Serial.begin(9600);
-}
-
-
-bool prevVal = HIGH; 
-bool prev_readVal;
-void loop() {
-  bool readVal;
-  readVal = digitalRead(readPIN);
-  delay(50);
-  if(readVal & !prev_readVal){ // 0 to 1 transition
-     digitalWrite(ledPIN, prevVal);
-     prevVal = !prevVal;
-    }
-  prev_readVal=readVal;   
-}
-```
-<br/>
-
-<!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-<!-- blank line -->
-
-<br/>
-<br/>
 
 ### Expt 5: Button Controlled dimmable LED
 
@@ -664,6 +625,8 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
+<br/>
+<br/>
 
 ### Expt 12: 7 Segment Display
 
@@ -828,3 +791,47 @@ frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
 <!-- blank line -->
+<br/>
+<br/>
+
+### Expt #:Toggle Switch
+<br/>
+
+```c
+
+int readPIN = 8;
+int ledPIN  = 12;
+
+void setup() {
+  //pinMode(readPIN,INPUT_PULLUP);//press =0
+  pinMode(readPIN,INPUT);
+  pinMode(ledPIN,OUTPUT);
+  Serial.begin(9600);
+}
+
+
+bool prevVal = HIGH; 
+bool prev_readVal;
+void loop() {
+  bool readVal;
+  readVal = digitalRead(readPIN);
+  delay(50);
+  if(readVal & !prev_readVal){ // 0 to 1 transition
+     digitalWrite(ledPIN, prevVal);
+     prevVal = !prevVal;
+    }
+  prev_readVal=readVal;   
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
