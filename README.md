@@ -845,48 +845,53 @@ allowfullscreen></iframe>
 <br/>
 
 ```c
-int readPIN_up = 11;
-int readPIN_down = 12;
-int ledPIN  = 9;
-
-int BrightVal=0;
-
+int temp = A0;
+int LED1=8;
+int LED6=13;
 void setup() {
-  pinMode(readPIN_up,INPUT_PULLUP);
-  pinMode(readPIN_down,INPUT_PULLUP);
-  pinMode(ledPIN,OUTPUT);
+  pinMode(temp,INPUT);
+  for(int i=LED1;i<=LED6;++i){
+    pinMode(i,OUTPUT);
+  }
   Serial.begin(9600);
+}
+
+void ledOn(int led){
+   for(int i=LED1;i<=LED1+led;++i){
+   digitalWrite(i,HIGH);
+  }
+}
+
+void thermometerScale(float temp){
+ if(temp<-13.32)
+    ledOn(0);
+  else if(temp<20.68)
+    ledOn(1);
+  else if(temp<47.48)
+    ledOn(2);
+  else if(temp<81.64)
+    ledOn(3);
+  else if(temp<115.80)
+    ledOn(4);
+  else if(temp<149)
+    ledOn(5);
+  else 
+    ledOn(6);
+    
 }
 
 
 void loop() {
-
-  int dt =50;
   
-  int readVal_up;
-  readVal_up=digitalRead(readPIN_up);
-  delay(dt);
-  
-  int readVal_down;
-  readVal_down=digitalRead(readPIN_down);
-  delay(dt);
-  
-  if(!readVal_up){
-    if(BrightVal != 255){
-      BrightVal += 17;
-      Serial.println(BrightVal);
-      analogWrite(ledPIN,BrightVal);
-    }
-  }
-  
-  if(!readVal_down){
-    if(BrightVal != 0){
-      BrightVal-= 17;
-      Serial.println(BrightVal);
-      analogWrite(ledPIN,BrightVal);
-    }
-  }
-  
+  int val = analogRead(temp);
+  float dat;// define variable
+  val=analogRead(0);
+  dat=(125*val)>>8;// temperature calculation formula
+  Serial.print("Temp ");
+  Serial.print(dat);
+  Serial.println(" C");
+  thermometerScale(dat);
+  delay(5000);
 }
 ```
 <br/>
@@ -903,7 +908,6 @@ allowfullscreen></iframe>
 <br/>
 
 ### ASSIGNMENT 2 : DIGITAL DICE
-
 <br/>
 
 ```c
