@@ -244,7 +244,9 @@ allowfullscreen></iframe>
 <!-- blank line -->
 <br/>
 <br/>
+
 ### Expt 7:LDR
+
 <br/>
 
 
@@ -294,6 +296,7 @@ allowfullscreen></iframe>
 
 <br/>
 <br/>
+
 ### Expt 8: Flame Sensor
 
 <br/>
@@ -354,113 +357,6 @@ void loop() {
   Serial.print(dat);
   Serial.println(" C");
   delay(500);
-}
-```
-<br/>
-
-<!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-<!-- blank line -->
-
-<br/>
-<br/>
-
-
-### Expt 11:POTENTIOMETER
-<br/>
-
-```c
-int potVal;
-int potPin=A0;
-int ledPin=11;
-float ledV;
-float ledVal;
-
-float potV2ledV(int potV){
-  ledV=(255./1023.)*potV;
-  return ledV;
-}
-void setup() {
-  Serial.begin(9600);
-  pinMode(potPin,INPUT);
-  pinMode(ledPin,OUTPUT);
-}
-void loop() {
-  potVal=analogRead(potPin);
-  Serial.println(potVal);
-  ledVal = potV2ledV(potVal);
-  Serial.println(ledVal);
-  Serial.println("--------------");
-  analogWrite(ledPin,ledVal);  
-}
-```
-<br/>
-
-<!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/dhxAwZ74s28" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-<!-- blank line -->
-
-<br/>
-<br/>
-
-
-
-
-### Expt 5: Button Controlled dimmable LED
-
-<br/>
-
-```c
-int readPIN_up = 11;
-int readPIN_down = 12;
-int ledPIN  = 9;
-
-int BrightVal=0;
-
-void setup() {
-  pinMode(readPIN_up,INPUT_PULLUP);
-  pinMode(readPIN_down,INPUT_PULLUP);
-  pinMode(ledPIN,OUTPUT);
-  Serial.begin(9600);
-}
-
-
-void loop() {
-
-  int dt =50;
-  
-  int readVal_up;
-  readVal_up=digitalRead(readPIN_up);
-  delay(dt);
-  
-  int readVal_down;
-  readVal_down=digitalRead(readPIN_down);
-  delay(dt);
-  
-  if(!readVal_up){
-    if(BrightVal != 255){
-      BrightVal += 17;
-      Serial.println(BrightVal);
-      analogWrite(ledPIN,BrightVal);
-    }
-  }
-  
-  if(!readVal_down){
-    if(BrightVal != 0){
-      BrightVal-= 17;
-      Serial.println(BrightVal);
-      analogWrite(ledPIN,BrightVal);
-    }
-  }
-  
 }
 ```
 <br/>
@@ -627,6 +523,49 @@ allowfullscreen></iframe>
 <!-- blank line -->
 <br/>
 <br/>
+
+### Expt 11:POTENTIOMETER
+<br/>
+
+```c
+int potVal;
+int potPin=A0;
+int ledPin=11;
+float ledV;
+float ledVal;
+
+float potV2ledV(int potV){
+  ledV=(255./1023.)*potV;
+  return ledV;
+}
+void setup() {
+  Serial.begin(9600);
+  pinMode(potPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+}
+void loop() {
+  potVal=analogRead(potPin);
+  Serial.println(potVal);
+  ledVal = potV2ledV(potVal);
+  Serial.println(ledVal);
+  Serial.println("--------------");
+  analogWrite(ledPin,ledVal);  
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/dhxAwZ74s28" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+
 
 ### Expt 12: 7 Segment Display
 
@@ -835,3 +774,192 @@ allowfullscreen></iframe>
 
 <br/>
 <br/>
+
+
+
+
+### Expt #: Button Controlled dimmable LED
+
+<br/>
+
+```c
+int readPIN_up = 11;
+int readPIN_down = 12;
+int ledPIN  = 9;
+
+int BrightVal=0;
+
+void setup() {
+  pinMode(readPIN_up,INPUT_PULLUP);
+  pinMode(readPIN_down,INPUT_PULLUP);
+  pinMode(ledPIN,OUTPUT);
+  Serial.begin(9600);
+}
+
+
+void loop() {
+
+  int dt =50;
+  
+  int readVal_up;
+  readVal_up=digitalRead(readPIN_up);
+  delay(dt);
+  
+  int readVal_down;
+  readVal_down=digitalRead(readPIN_down);
+  delay(dt);
+  
+  if(!readVal_up){
+    if(BrightVal != 255){
+      BrightVal += 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
+  if(!readVal_down){
+    if(BrightVal != 0){
+      BrightVal-= 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+### ASSIGNMENT 1 : THERMOMETER
+
+<br/>
+
+```c
+int readPIN_up = 11;
+int readPIN_down = 12;
+int ledPIN  = 9;
+
+int BrightVal=0;
+
+void setup() {
+  pinMode(readPIN_up,INPUT_PULLUP);
+  pinMode(readPIN_down,INPUT_PULLUP);
+  pinMode(ledPIN,OUTPUT);
+  Serial.begin(9600);
+}
+
+
+void loop() {
+
+  int dt =50;
+  
+  int readVal_up;
+  readVal_up=digitalRead(readPIN_up);
+  delay(dt);
+  
+  int readVal_down;
+  readVal_down=digitalRead(readPIN_down);
+  delay(dt);
+  
+  if(!readVal_up){
+    if(BrightVal != 255){
+      BrightVal += 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
+  if(!readVal_down){
+    if(BrightVal != 0){
+      BrightVal-= 17;
+      Serial.println(BrightVal);
+      analogWrite(ledPIN,BrightVal);
+    }
+  }
+  
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+### ASSIGNMENT 2 : DIGITAL DICE
+
+<br/>
+
+```c
+
+int buttonPin = 7;
+int LED1=8;
+int LED6=13;
+
+void rolling(){//CHASING EFFECT
+   for(int pin=LED1;pin<=LED6;++pin){
+   digitalWrite(pin,HIGH);
+   delay(100);
+  }
+  for(int pin=LED6;pin>=LED1;--pin){
+   digitalWrite(pin,LOW);
+   delay(100);
+  }
+}
+
+void displayResult(int number){
+  for(int i=LED1;i<LED1+number;++i){
+    digitalWrite(i,HIGH);
+    delay(50);
+  }
+}
+
+void setup() {
+  for (int i=LED1;i<=LED6;++i){
+    pinMode(i,OUTPUT);
+  }
+  pinMode(buttonPin,INPUT_PULLUP);
+  Serial.begin(9600);
+  randomSeed(analogRead(0));
+}
+void loop() { 
+  if(!digitalRead(buttonPin)){//IF THE BUTTON IS PRESSED
+    
+    for(int i=0;i<=3;++i){    // ROLLING EFFECT
+      rolling();            
+    }
+    displayResult(random(1,7)); //DISPLAY RESULT
+  } 
+}
+```
+
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+
