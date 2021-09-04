@@ -889,7 +889,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-![Thermometer.jpg](/IMG_20210828_161604_1~2.jpg "Thermometer")
+![Thermometer.jpg](IMG_20210828_161604_1~2.jpg "Thermometer")
 <!-- blank line -->
 
 <br/>
