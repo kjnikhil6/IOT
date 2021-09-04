@@ -179,11 +179,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
+![Buzzer.jpg](/DEBUG_IMG_20210828_163725~2.jpg "Buzzer")
 <!-- blank line -->
 
 <br/>
@@ -362,11 +358,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
+![LM35.jpg](/IMG_20210818_162724_1~2.jpg "LM35")
 <!-- blank line -->
 
 <br/>
