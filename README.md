@@ -179,7 +179,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-![Buzzer.jpg](https://github.com/kjnikhil6/IoT/blob/177b78366a22500d8774adef37574f68071ead7e/DEBUG_IMG_20210828_163725~2.jpg "Buzzer")
+![Buzzer.jpg](DEBUG_IMG_20210828_163725~2.jpg "Buzzer")
 <!-- blank line -->
 
 <br/>
@@ -358,7 +358,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-![LM35.jpg](/IMG_20210818_162724_1~2.jpg "LM35")
+![LM35.jpg](IMG_20210818_162724_1~2.jpg "LM35")
 <!-- blank line -->
 
 <br/>
