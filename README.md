@@ -897,11 +897,7 @@ void loop() {
 <br/>
 
 <!-- blank line -->
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
+![Thermometer.jpg](/IMG_20210828_161604_1~2.jpg "Thermometer")
 <!-- blank line -->
 
 <br/>
