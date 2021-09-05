@@ -564,8 +564,7 @@ allowfullscreen></iframe>
 <br/>
 
 ```c
-// C++ code
-//
+
 int g = 12;
 int f = 11;
 int e = 10;
@@ -758,7 +757,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
+src="https://www.youtube.com/embed/0aEnn13wK4Q" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
@@ -823,7 +822,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/" 
+src="https://www.youtube.com/embed/lTaUh4BUp1A" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
