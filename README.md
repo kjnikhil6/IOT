@@ -1122,3 +1122,150 @@ allowfullscreen></iframe>
 
 <br/>
 <br/>
+
+### Expt #: LED on/off via Blynk:
+
+<br/>
+
+```c
+
+
+#define BLYNK_TEMPLATE_ID "*****"
+#define BLYNK_DEVICE_NAME "LED Blink"
+
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
+
+#define BLYNK_PRINT Serial
+//#define BLYNK_DEBUG
+
+#define APP_DEBUG
+
+// Uncomment your board, or configure a custom board in Settings.h
+//#define USE_WROVER_BOARD
+//#define USE_TTGO_T7
+//#define USE_ESP32C3_DEV_MODULE
+//#define USE_ESP32S2_DEV_KIT
+
+#include "BlynkEdgent.h"
+
+BLYNK_WRITE(V0)
+{
+  int pinValue = param.asInt();
+  digitalWrite(13,pinValue);
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  delay(100);
+  pinMode(13,OUTPUT);
+
+  BlynkEdgent.begin();
+}
+
+void loop() {
+  BlynkEdgent.run();
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/pIbwQVhK8ic" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+### Expt #: Soil Moisture:
+
+<br/>
+
+```c
+
+
+#define BLYNK_TEMPLATE_ID "TMPLxNtPLUlo"
+#define BLYNK_DEVICE_NAME "SOIL MOISTURE"
+
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
+
+#define BLYNK_PRINT Serial
+//#define BLYNK_DEBUG
+
+#define APP_DEBUG
+
+// Uncomment your board, or configure a custom board in Settings.h
+//#define USE_WROVER_BOARD
+//#define USE_TTGO_T7
+//#define USE_ESP32C3_DEV_MODULE''J  
+//#define USE_ESP32S2_DEV_KIT
+
+
+#define soilPin 34
+
+
+#include "BlynkEdgent.h"
+BlynkTimer timer;
+
+float SoilMoisture_percentage()
+{
+  float moisture_percentage;
+
+  moisture_percentage = ( 100.00 - ( (analogRead(soilPin)/4095.00) * 100.00 ) );
+  Serial.println(analogRead(soilPin));
+
+  Serial.print("Soil Moisture(in Percentage) = ");
+  Serial.print(moisture_percentage);
+  Serial.println("%");
+
+  delay(1000);
+  return moisture_percentage;
+}
+
+
+void sendSensor()
+{
+  float percntge = SoilMoisture_percentage();
+
+  if (isnan(percntge)) {
+    Serial.println("Failed to read from soil sensor!");
+    return;
+  }
+  // You can send any value at any time.
+  // Please don't send more that 10 values per second.
+  Blynk.virtualWrite(V0, percntge);
+  
+}
+
+
+
+void setup()
+{
+  Serial.begin(115200);
+  delay(100);
+  pinMode(soilPin, INPUT);
+  BlynkEdgent.begin();
+  timer.setInterval(1000L, sendSensor);
+}
+
+void loop() {
+  BlynkEdgent.run();
+  timer.run();
+  
+}
+
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/YO98mE9eAxw" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
