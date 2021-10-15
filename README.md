@@ -1,7 +1,10 @@
-## Hi
+# Hi
 I'm NIKHIL KJ,Undergraduate @ GEC PKD
 <br/>
 <br/>
+
+## LEVEL 1:
+
 ### Expt 1:LED Blinking
 <br/>
 
@@ -953,4 +956,169 @@ allowfullscreen></iframe>
 <br/>
 <br/>
 
+## LEVEL 2:
+<br/>
+<br/>
 
+### Expt : Ultrasonic Sensor & Blynk:
+<br/>
+
+```c
+
+#define BLYNK_TEMPLATE_ID "TMPL7LjrPPdu"
+#define BLYNK_DEVICE_NAME "ULTRASONIC SENSOR"
+
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
+
+#define BLYNK_PRINT Serial
+//#define BLYNK_DEBUG
+
+#define APP_DEBUG
+
+// Uncomment your board, or configure a custom board in Settings.h
+//#define USE_WROVER_BOARD
+//#define USE_TTGO_T7
+//#define USE_ESP32C3_DEV_MODULE''J  
+//#define USE_ESP32S2_DEV_KIT
+
+
+#define trigPin 13
+#define echoPin 12
+
+float duration, distance;
+
+
+#include "BlynkEdgent.h"
+BlynkTimer timer;
+
+double UltraSonic_distance()
+{
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+ 
+ 
+  duration = pulseIn(echoPin, HIGH);
+  
+  // Use 343 metres per second as speed of sound
+  
+  distance = (duration / 2) * 0.0343;
+  
+ 
+  Serial.print("Distance = ");
+  if (distance >= 400 || distance <= 2) {
+     Serial.println("Out of range");
+  }
+  else {
+    Serial.print(distance);
+    Serial.println(" cm");
+    delay(500);
+  }
+  delay(500);
+  return distance;
+}
+
+
+void sendSensor()
+{
+  double dist = UltraSonic_distance();
+
+  if (isnan(dist)) {
+    Serial.println("Failed to read from hcsr04 sensor!");
+    return;
+  }
+  // You can send any value at any time.
+  // Please don't send more that 10 values per second.
+  Blynk.virtualWrite(V0, dist);
+  
+}
+
+
+
+void setup()
+{
+  Serial.begin(115200);
+  delay(100);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  BlynkEdgent.begin();
+  timer.setInterval(1000L, sendSensor);
+}
+
+void loop() {
+  BlynkEdgent.run();
+  timer.run();
+  
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/qy43WxsqTMA" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
+
+### Expt #: LED on/off via Blynk:
+
+<br/>
+
+```c
+
+
+#define BLYNK_TEMPLATE_ID "*****"
+#define BLYNK_DEVICE_NAME "LED Blink"
+
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
+
+#define BLYNK_PRINT Serial
+//#define BLYNK_DEBUG
+
+#define APP_DEBUG
+
+// Uncomment your board, or configure a custom board in Settings.h
+//#define USE_WROVER_BOARD
+//#define USE_TTGO_T7
+//#define USE_ESP32C3_DEV_MODULE
+//#define USE_ESP32S2_DEV_KIT
+
+#include "BlynkEdgent.h"
+
+BLYNK_WRITE(V0)
+{
+  int pinValue = param.asInt();
+  digitalWrite(13,pinValue);
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  delay(100);
+  pinMode(13,OUTPUT);
+
+  BlynkEdgent.begin();
+}
+
+void loop() {
+  BlynkEdgent.run();
+}
+```
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/pIbwQVhK8ic" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+
+<br/>
+<br/>
