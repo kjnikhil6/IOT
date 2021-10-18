@@ -1195,7 +1195,7 @@ void onLed1Change()  {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/pIbwQVhK8ic" 
+src="https://www.youtube.com/embed/eQAuHvE9dYc" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
@@ -1357,7 +1357,7 @@ void loop() {
 
 <!-- blank line -->
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/pIbwQVhK8ic" 
+src="https://www.youtube.com/embed/riflRFg5dG8" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
