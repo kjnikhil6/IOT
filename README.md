@@ -1365,3 +1365,107 @@ allowfullscreen></iframe>
 
 <br/>
 <br/>
+### EXPT # : LED CONTROL using MIT APP INVENTOR
+
+<br/>
+
+```c
+#include <WiFi.h>
+const char* ssid = "8888888";
+const char* password = "8888888";
+
+WiFiServer server(80); // Port 80
+
+#define LED2  2    // LED2 is a Built-in LED.
+String STATE = "";
+int wait30 = 30000; // time to reconnect when connection is lost.
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED2, OUTPUT);
+
+// Connect WiFi net.
+  Serial.println();
+  Serial.print("Connecting with ");
+  Serial.println(ssid);
+ 
+  WiFi.begin(ssid, password);
+ 
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("Connected with WiFi.");
+ 
+  // Start Web Server.
+  server.begin();
+  Serial.println("Web Server started.");
+ 
+  Serial.print("This is IP to connect to the WebServer: ");
+  Serial.print("http://");
+  Serial.println(WiFi.localIP());
+}
+ 
+void loop() {
+// If disconnected, try to reconnect every 30 seconds.
+  if ((WiFi.status() != WL_CONNECTED) && (millis() > wait30)) {
+    Serial.println("Trying to reconnect WiFi...");
+    WiFi.disconnect();
+    WiFi.begin(ssid, password);
+    wait30 = millis() + 30000;
+  } 
+  // Check if a client has connected..
+  WiFiClient client = server.available();
+  if (!client) {
+    return;
+  }
+   
+  Serial.print("New client: ");
+  Serial.println(client.remoteIP());
+
+
+
+  /////////////////////////////////////////////////////
+  // Read the information sent by the client.
+  String req = client.readStringUntil('\r');
+  Serial.println(req);
+
+  // Make the client's request.
+       if (req.indexOf("ON") != -1) {digitalWrite(LED2, HIGH); STATE = "ON";}
+       if (req.indexOf("OFF") != -1){digitalWrite(LED2, LOW); STATE = "OFF";}
+ 
+  //  WEB PAGE.
+  client.println("HTTP/1.1 200 OK");
+  client.println("Content-Type: text/html");
+  client.println(""); //  Important.
+  client.println("<!DOCTYPE HTML>");
+  client.println("<html>");
+  client.println("<head><meta charset=utf-8></head>");
+  client.println("<body>")
+  client.println("</body></html>");
+
+  Serial.print("Client disconnected: ");
+  Serial.println(client.remoteIP());
+  client.flush();
+  client.stop();
+}
+```
+<br/>
+
+<!-- blank line -->
+![MIT APP INVETOR.jpg](IMG_20211115_180927_1.jpg "MIT APP INVETOR.jpg")
+<!-- blank line -->
+
+
+
+<br/>
+
+<!-- blank line -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/beZ7IvgaxA8" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-- blank line -->
+<br/>
+<br/>
